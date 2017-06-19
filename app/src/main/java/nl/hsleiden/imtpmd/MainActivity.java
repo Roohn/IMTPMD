@@ -10,15 +10,11 @@ import java.util.ArrayList;
 import nl.hsleiden.imtpmd.models.Modules;
 
 public class MainActivity extends AppCompatActivity {
-    public TextView titleTextView, dateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        titleTextView = (TextView) findViewById(R.id.name);
-        dateTextView = (TextView) findViewById(R.id.id);
 
         //haal de modules op vanuit de API
         getModules task = new getModules();
