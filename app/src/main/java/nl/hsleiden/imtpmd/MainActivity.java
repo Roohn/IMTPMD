@@ -1,8 +1,10 @@
 package nl.hsleiden.imtpmd;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,19 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //haal de modules op vanuit de API
-        getModules task = new getModules();
-        task.execute();
     }
 
-    /**
-     * Als de API alles opgehaald heeft spreekt het deze methode aan om alles in de lijst te laden
-     * @param modules
-     */
-    public void updateUi(ArrayList<Modules> modules) {
-        for(int i = 0; i < modules.size(); i++) {
-            //TODO hier alle lijsten vullen met bijv. modules.get(i).getNaam();
-        }
+    public void gotoScherm(View v) {
+        Intent intent = new Intent(this, ModulesActivity.class);
+        startActivity(intent);
     }
 }
