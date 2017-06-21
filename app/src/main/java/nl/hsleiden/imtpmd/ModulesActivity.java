@@ -35,7 +35,11 @@ public class ModulesActivity extends Activity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        getModules getmodules = new getModules();
+        //TODO jaar en semester uit vorige schermen
+        int jaar = 1;
+        int semester = 1;
+
+        getModules getmodules = new getModules(jaar, semester);
         getmodules.execute();
     }
 
@@ -44,8 +48,15 @@ public class ModulesActivity extends Activity {
      */
     public class getModules extends AsyncTask<URL, Void, ArrayList<Modules>> {
         /** URL om de modules te laden */
-        private static final String API_URL = "http://ronaldtoldevelopment.nl/api/modules";
-        public final String LOG_TAG = MainActivity.class.getSimpleName();
+        private String API_URL = "http://ronaldtoldevelopment.nl/api/modules";
+        public String LOG_TAG = MainActivity.class.getSimpleName();
+        private int jaar, semester;
+
+        public getModules(int jaar, int semester) {
+            this.jaar = jaar;
+            this.semester = semester;
+            this.API_URL = API_URL + "/year/" + jaar + "/semester/" + semester;
+        }
 
         @Override
         protected ArrayList<Modules> doInBackground(URL... urls) {
