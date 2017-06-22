@@ -47,7 +47,6 @@ if (getSupportActionBar() != null){
                 break;
         }
         intent.putExtra("jaar", jaar);
-        Log.d("hoi", ""+jaar);
         startActivity(intent);
     }
 

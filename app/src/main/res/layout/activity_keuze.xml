@@ -8,10 +8,10 @@
     tools:context="nl.hsleiden.imtpmd.MainActivity">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/s1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoScherm2"
+        android:id = "@+id/s1"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
@@ -23,109 +23,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Semester 1"
-            app:layout_constraintBottom_toTopOf="@+id/view2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="0.5"
-            tools:textColor="#000000"
-            tools:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="21dp"
-            android:layout_height="28dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:src="@drawable/pijl"
-            app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3"
-            app:layout_constraintVertical_bias="0.5" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509" />
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/s2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="gotoScherm2"
-        android:paddingBottom="30dp"
-        android:paddingTop="30dp">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:text="Semester 2"
-            app:layout_constraintBottom_toTopOf="@+id/view2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="0.5"
-            tools:textColor="#000000"
-            tools:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="21dp"
-            android:layout_height="28dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:src="@drawable/pijl"
-            app:layout_constraintBottom_toTopOf="@+id/view4"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3"
-            app:layout_constraintVertical_bias="0.5" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509" />
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/s3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="gotoScherm2"
-        android:paddingBottom="30dp"
-        android:paddingTop="30dp">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:text="Semester 3"
+            android:text="Hoofdvakken"
             app:layout_constraintBottom_toTopOf="@+id/view2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
@@ -161,10 +59,10 @@
         app:layout_constraintVertical_bias="0.509" />
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/s4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoScherm2"
+        android:id = "@+id/s2"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
@@ -176,7 +74,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Semester 4"
+            android:text="Keuzevakken"
             app:layout_constraintBottom_toTopOf="@+id/view2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
@@ -202,6 +100,17 @@
 
     <View
         android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.509" />
+
+    <View
+        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"

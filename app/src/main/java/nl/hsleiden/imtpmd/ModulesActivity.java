@@ -50,9 +50,9 @@ if (getSupportActionBar() != null){
         Intent intent = getIntent();
         int jaar = intent.getIntExtra("jaar", 0);
         int semester = intent.getIntExtra("semester", 0);
-        Log.d("gekk", ""+jaar+semester);
+        int keuze = intent.getIntExtra("keuze", 0);
 
-        getModules getmodules = new getModules(jaar, semester);
+        getModules getmodules = new getModules(jaar, semester, keuze);
         getmodules.execute();
     }
 
@@ -63,9 +63,11 @@ if (getSupportActionBar() != null){
         /** URL om de modules te laden */
         private String API_URL = "http://ronaldtoldevelopment.nl/api/modules";
         public String LOG_TAG = MainActivity.class.getSimpleName();
+        private int keuze;
 
-        public getModules(int jaar, int semester) {
+        public getModules(int jaar, int semester, int keuze) {
             this.API_URL = API_URL + "/year/" + jaar + "/semester/" + semester;
+            this.keuze = keuze;
         }
 
         @Override
@@ -96,6 +98,7 @@ if (getSupportActionBar() != null){
             if (module == null) {
                 return;
             }
+
 
             ModulesArrayAdapter mAdapter = new ModulesArrayAdapter(module);
             recyclerView.setAdapter(mAdapter);
@@ -189,8 +192,13 @@ if (getSupportActionBar() != null){
                         String soort = module.getString("soort");
                         String cijfer = module.getString("cijfer");
 
-                        // Create a new {@link Modules} object
-                        modules.add(new Modules(code, naam, ECTS, jaar, semester, soort, cijfer));
+                        if (keuze == 1 && soort.equals("hoofdvak")) {
+                            modules.add(new Modules(code, naam, ECTS, jaar, semester, soort, cijfer));
+                        }
+                        if (keuze == 2 && soort.equals("keuzevak")) {
+                            modules.add(new Modules(code, naam, ECTS, jaar, semester, soort, cijfer));
+                        }
+
                     }
                 }
                 return modules;

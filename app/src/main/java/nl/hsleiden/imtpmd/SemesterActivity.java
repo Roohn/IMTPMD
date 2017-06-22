@@ -29,7 +29,7 @@ if (getSupportActionBar() != null){
     }
 
     public void gotoScherm2(View v) {
-        Intent intent = new Intent(this, ModulesActivity.class);
+        Intent intent = new Intent(this, KeuzeActivity.class);
         switch (v.getId()) {
             case R.id.s1:
                 semester = 1;
@@ -37,9 +37,14 @@ if (getSupportActionBar() != null){
             case R.id.s2:
                 semester = 2;
                 break;
+            case R.id.s3:
+                semester = 3;
+                break;
+            case R.id.s4:
+                semester = 4;
+                break;
         }
 
-        jaar = this.jaar;
         intent.putExtra("jaar", jaar);
         intent.putExtra("semester", semester);
         startActivity(intent);
