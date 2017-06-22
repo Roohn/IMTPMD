@@ -21,6 +21,7 @@
         <activity android:name=".ModulesActivity"></activity>
         <activity android:name=".GradesActivity"></activity>
         <activity android:name=".SemesterActivity"></activity>
+        <activity android:name=".KeuzeActivity"></activity>
     </application>
 
 </manifest>

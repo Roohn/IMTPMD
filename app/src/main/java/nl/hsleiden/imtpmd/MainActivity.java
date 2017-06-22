@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         intent.putExtra("jaar", jaar);
-        Log.d("hoi", ""+jaar);
         startActivity(intent);
     }
 }
