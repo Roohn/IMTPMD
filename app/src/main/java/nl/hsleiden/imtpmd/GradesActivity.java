@@ -47,6 +47,8 @@ public class GradesActivity extends Activity{
             public void onClick(View view) {
                 String newCijfer = cijf.getText().toString();
                 registerGrade(module.getCode(), newCijfer);
+                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -56,7 +58,7 @@ public class GradesActivity extends Activity{
 
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplication(), response, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "Cijfer opgeslagen!", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override

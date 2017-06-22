@@ -39,7 +39,7 @@ public class ModulesActivity extends Activity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
 
-        //TODO jaar en semester uit vorige schermen
+        //haal jaar en semester uit vorige schermen
         Intent intent = getIntent();
         int jaar = intent.getIntExtra("jaar", 0);
         int semester = intent.getIntExtra("semester", 0);
@@ -91,7 +91,6 @@ public class ModulesActivity extends Activity {
             if (module == null) {
                 return;
             }
-
 
             ModulesArrayAdapter mAdapter = new ModulesArrayAdapter(module);
             recyclerView.setAdapter(mAdapter);

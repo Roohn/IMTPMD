@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,15 +19,19 @@ public class ModulesArrayAdapter extends RecyclerView.Adapter<ModulesArrayAdapte
     private List<Modules> modulesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name;
-        public ImageView checkmark;
+        public TextView name, cijfer;
+        public CheckBox checkbox;
         public ImageView arrow;
+        public ImageView listImage;
 
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.name);
-            checkmark = (ImageView) view.findViewById(R.id.checkmark);
+            cijfer = (TextView) view.findViewById(R.id.cijfer);
+            checkbox = (CheckBox) view.findViewById(R.id.checkBoxList);
             arrow = (ImageView) view.findViewById(R.id.arrow);
+            listImage = (ImageView) view.findViewById(R.id.listImage);
+
         }
     }
 
@@ -45,8 +50,19 @@ public class ModulesArrayAdapter extends RecyclerView.Adapter<ModulesArrayAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Modules module = modulesList.get(position);
-        holder.name.setText(module.getNaam());
-        holder.checkmark.setImageResource(R.drawable.noarrow);
+        holder.name.setText(module.getCode());
+        holder.listImage.setImageResource(R.drawable.grades);
+        if(module.getCijfer().equals("null")){
+            holder.checkbox.setChecked(false);
+            holder.cijfer.setText("...");
+        } else {
+            holder.cijfer.setText(module.getCijfer());
+            if (Double.parseDouble(module.getCijfer()) > 5.5) {
+                holder.checkbox.setChecked(true);
+            } else {
+                holder.checkbox.setChecked(false);
+            }
+        }
         holder.arrow.setImageResource(R.drawable.pijl);
 
         //onclick
