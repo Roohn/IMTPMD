@@ -3,14 +3,16 @@ package nl.hsleiden.imtpmd;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
  * Created by Daan on 21-6-2017.
  */
 
-public class SemesterActivity extends Activity {
+public class SemesterActivity extends AppCompatActivity {
     public int jaar;
     public int semester = 0;
     @Override
@@ -20,6 +22,10 @@ public class SemesterActivity extends Activity {
         setContentView(R.layout.activity_scherm01);
         Intent intent = getIntent();
         jaar = intent.getIntExtra("jaar", 0);
+if (getSupportActionBar() != null){
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+}
     }
 
     public void gotoScherm2(View v) {
@@ -37,5 +43,10 @@ public class SemesterActivity extends Activity {
         intent.putExtra("jaar", jaar);
         intent.putExtra("semester", semester);
         startActivity(intent);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

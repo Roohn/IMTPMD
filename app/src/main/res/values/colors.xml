@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6BC067</color>
     <color name="colorPrimaryDark">#5BA357</color>
     <color name="colorAccent">#FF4081</color>
+    <string-array name="colors">
+        <item>#ff0000</item>
+        <item>#00ff00</item>
+        <item>#0000ff</item>
+    </string-array>
+    <color name="colorChartO">#AF1A39</color>
 </resources>
