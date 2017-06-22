@@ -1,6 +1,7 @@
 package nl.hsleiden.imtpmd;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -39,8 +40,10 @@ public class ModulesActivity extends Activity {
         recyclerView.setLayoutManager(mLayoutManager);
 
         //TODO jaar en semester uit vorige schermen
-        int jaar = 1;
-        int semester = 1;
+        Intent intent = getIntent();
+        int jaar = intent.getIntExtra("jaar", 0);
+        int semester = intent.getIntExtra("semester", 0);
+        Log.d("gekk", ""+jaar+semester);
 
         getModules getmodules = new getModules(jaar, semester);
         getmodules.execute();
