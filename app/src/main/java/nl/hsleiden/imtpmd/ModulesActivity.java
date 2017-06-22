@@ -7,6 +7,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,11 +53,8 @@ public class ModulesActivity extends Activity {
         /** URL om de modules te laden */
         private String API_URL = "http://ronaldtoldevelopment.nl/api/modules";
         public String LOG_TAG = MainActivity.class.getSimpleName();
-        private int jaar, semester;
 
         public getModules(int jaar, int semester) {
-            this.jaar = jaar;
-            this.semester = semester;
             this.API_URL = API_URL + "/year/" + jaar + "/semester/" + semester;
         }
 
@@ -163,19 +163,24 @@ public class ModulesActivity extends Activity {
                 // If there are results in the features array
                 if (jsonResponseArray.length() > 0) {
 
-                    for (int i = 0; i < jsonResponseArray.length(); i++) {
-                        JSONObject module = jsonResponseArray.getJSONObject(i);
+                    //haal jaar en semester op
+                    JSONObject date = jsonResponseArray.getJSONObject(0);
+                    int jaar = date.getInt("year");
+                    int semester = date.getInt("semester");
+                    JSONArray modulesArray = date.getJSONArray("modules");
 
-                        // Extract out the title, time, and tsunami values
+                    for (int i = 0; i < modulesArray.length(); i++) {
+                        JSONObject module = modulesArray.getJSONObject(i);
+
+                        // Extract the id, name, ects en soort
                         String code = module.getString("id");
                         String naam = module.getString("name");
-                        int jaar = module.getInt("year");
-                        int semester = module.getInt("semester");
                         int ECTS = module.getInt("ects");
                         String soort = module.getString("soort");
+                        String cijfer = module.getString("cijfer");
 
                         // Create a new {@link Modules} object
-                        modules.add(new Modules(code, naam, ECTS, jaar, semester, soort));
+                        modules.add(new Modules(code, naam, ECTS, jaar, semester, soort, cijfer));
                     }
                 }
                 return modules;
