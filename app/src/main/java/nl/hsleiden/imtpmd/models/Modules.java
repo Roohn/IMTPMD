@@ -21,6 +21,14 @@ public class Modules implements Serializable{
         this.cijfer = cijfer;
     }
 
+    public Modules(String code, String naam, int ECTS, String soort, String cijfer) {
+        this.code = code;
+        this.naam = naam;
+        this.ECTS = ECTS;
+        this.soort = soort;
+        this.cijfer = cijfer;
+    }
+
     public String getCode() {
         return code;
     }
