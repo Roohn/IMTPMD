@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoScherm"
+        android:id = "@+id/j1"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
@@ -60,6 +61,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="gotoScherm"
+        android:id = "@+id/j2"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
@@ -109,6 +112,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="gotoScherm"
+        android:id = "@+id/j3"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
@@ -158,6 +163,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="gotoScherm"
+        android:id = "@+id/j4"
         android:paddingBottom="30dp"
         android:paddingTop="30dp">
 
