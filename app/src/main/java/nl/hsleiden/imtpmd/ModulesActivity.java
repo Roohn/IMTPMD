@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 
 import nl.hsleiden.imtpmd.models.Modules;
 
-public class ModulesActivity extends Activity {
+public class ModulesActivity extends AppCompatActivity {
     public RecyclerView recyclerView;
 
     @Override
@@ -38,6 +40,11 @@ public class ModulesActivity extends Activity {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
+if (getSupportActionBar() != null){
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+}
+
 
         //haal jaar en semester uit vorige schermen
         Intent intent = getIntent();
@@ -200,5 +207,11 @@ public class ModulesActivity extends Activity {
             }
             return null;
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }

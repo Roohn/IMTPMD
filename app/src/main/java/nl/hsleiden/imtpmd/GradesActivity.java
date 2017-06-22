@@ -3,7 +3,9 @@ package nl.hsleiden.imtpmd;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +25,7 @@ import java.util.Map;
 
 import nl.hsleiden.imtpmd.models.Modules;
 
-public class GradesActivity extends Activity{
+public class GradesActivity extends AppCompatActivity{
     String URL_POST = "http://ronaldtoldevelopment.nl/api/insertGrade";
     TextView cijf, naam;
 
@@ -40,6 +42,11 @@ public class GradesActivity extends Activity{
         cijf = (TextView) findViewById(R.id.cijferInvoer);
         naam.setText(module.getCode());
         cijf.setText(module.getCijfer());
+
+if (getSupportActionBar() != null){
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+}
 
         Button save = (Button) findViewById(R.id.cijferSave);
         save.setOnClickListener(new View.OnClickListener() {
@@ -77,5 +84,10 @@ public class GradesActivity extends Activity{
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }
