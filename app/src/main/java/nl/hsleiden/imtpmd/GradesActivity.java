@@ -55,7 +55,7 @@ if (getSupportActionBar() != null){
             public void onClick(View view) {
                 String newCijfer = cijf.getText().toString();
                 registerGrade(module.getCode(), newCijfer);
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                Intent intent = new Intent(view.getContext(), OverzichtActivity.class);
                 startActivity(intent);
             }
         });
