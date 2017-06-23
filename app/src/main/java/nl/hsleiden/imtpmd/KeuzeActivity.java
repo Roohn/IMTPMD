@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
 public class KeuzeActivity extends AppCompatActivity {
@@ -18,6 +19,10 @@ public class KeuzeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         jaar = intent.getIntExtra("jaar", 0);
         semester = intent.getIntExtra("semester", 0);
+if (getSupportActionBar() != null){
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setDisplayShowHomeEnabled(true);
+}
     }
 
     public void gotoScherm2(View v) {
@@ -35,5 +40,10 @@ public class KeuzeActivity extends AppCompatActivity {
         intent.putExtra("semester", semester);
         intent.putExtra("keuze", keuze);
         startActivity(intent);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
     }
 }
