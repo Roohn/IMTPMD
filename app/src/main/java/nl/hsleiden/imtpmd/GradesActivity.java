@@ -48,6 +48,7 @@ if (getSupportActionBar() != null){
     getSupportActionBar().setDisplayShowHomeEnabled(true);
 }
 
+        //onclick
         Button save = (Button) findViewById(R.id.cijferSave);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,11 @@ if (getSupportActionBar() != null){
         });
     }
 
+    /**
+     * registeren van een cijfer bij juiste vak (id)
+     * @param id
+     * @param cijfer
+     */
     public void registerGrade(final String id, final String cijfer) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_POST, new Response.Listener<String>() {
 

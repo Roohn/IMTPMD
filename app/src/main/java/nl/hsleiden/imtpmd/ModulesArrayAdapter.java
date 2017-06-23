@@ -24,6 +24,7 @@ public class ModulesArrayAdapter extends RecyclerView.Adapter<ModulesArrayAdapte
         public ImageView arrow;
         public ImageView listImage;
 
+        //declare alle views
         public MyViewHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.name);
@@ -52,6 +53,8 @@ public class ModulesArrayAdapter extends RecyclerView.Adapter<ModulesArrayAdapte
         final Modules module = modulesList.get(position);
         holder.name.setText(module.getCode());
         holder.listImage.setImageResource(R.drawable.grades);
+
+        //laat het goede cijfer zien
         if(module.getCijfer().equals("null")){
             holder.checkbox.setChecked(false);
             holder.cijfer.setText("...");

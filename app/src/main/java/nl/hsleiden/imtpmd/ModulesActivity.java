@@ -56,8 +56,8 @@ if (getSupportActionBar() != null){
         getmodules.execute();
     }
 
-    /*
-     * Haal de modules uit de API
+    /**
+     * Haal modules uit de API op jaar, semester en soort vak
      */
     public class getModules extends AsyncTask<URL, Void, ArrayList<Modules>> {
         /** URL om de modules te laden */
@@ -65,6 +65,7 @@ if (getSupportActionBar() != null){
         public String LOG_TAG = MainActivity.class.getSimpleName();
         private int keuze;
 
+        //constructor
         public getModules(int jaar, int semester, int keuze) {
             this.API_URL = API_URL + "/year/" + jaar + "/semester/" + semester;
             this.keuze = keuze;
@@ -164,8 +165,7 @@ if (getSupportActionBar() != null){
         }
 
         /**
-         * Return an {@link Modules} object by parsing out information
-         * about the first module from the input modulesJSON string.
+         * Maak een modules arraylist aan met alle vakken erin
          */
         private ArrayList<Modules> extractModulesFromJson(String modulesJSON) {
             try {
