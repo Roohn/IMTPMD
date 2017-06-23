@@ -53,8 +53,6 @@ public class OverzichtActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overzicht);
-        Log.d(TAG, "onCreate: starting to create chart");
-
 
         pieChart = (PieChart) findViewById(R.id.idPieChart);
 
@@ -64,16 +62,11 @@ public class OverzichtActivity extends AppCompatActivity {
         pieChart.setDescription(description);
 
         pieChart.setRotationEnabled(true);
-        //pieChart.setUsePercentValues(true);
-        //pieChart.setHoleColor(Color.BLUE);
-        //pieChart.setCenterTextColor(Color.BLACK);
         pieChart.setHoleRadius(25f);
         pieChart.setTransparentCircleAlpha(0);
         pieChart.setCenterText("Voortgang");
         pieChart.setCenterTextSize(10);
-        //pieChart.setDrawEntryLabels(true);
-        //pieChart.setEntryLabelTextSize(20);
-        //More options just check out the documentation!
+
 
         //haal uit de api
         getAllGrades get = new getAllGrades();
@@ -99,24 +92,24 @@ public class OverzichtActivity extends AppCompatActivity {
             xEntrys.add(xData[i]);
         }
 
-        //create the data set
+        //creër data set
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "Aantal onvoldoendes en voldoendes");
         pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
 
-        //add colors to dataset
+        //kleuren toevoegen aan dataset
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(Color.parseColor("#DD3E52"));
         colors.add(Color.parseColor("#6BC067"));
 
         pieDataSet.setColors(colors);
 
-        //add legend to chart
+        //legenda
         Legend legend = pieChart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
 
-        //create pie data object
+        //pie data object
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
         pieChart.invalidate();
